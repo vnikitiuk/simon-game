@@ -2,7 +2,7 @@ var gamePattern = [];
 
 var userClickedPattern = [];
 
-var buttonColours = ["red", "blue", "green", "yellow"];
+var animals = ["pig", "sheep", "cow", "chicken"];
 
 
 $(document).keypress(function(){
@@ -13,11 +13,11 @@ $(document).keypress(function(){
 
 $(".btn").click(function(){
 
-    var userChosenColour = $(this).attr("id");
-    userClickedPattern.push(userChosenColour);
+    var userChosenAnimal = $(this).attr("id");
+    userClickedPattern.push(userChosenAnimal);
 
-    playSound (userChosenColour);
-    animatePress (userChosenColour);
+    playSound (userChosenAnimal);
+    animatePress (userChosenAnimal);
 
     checkAnswer(userClickedPattern.length-1);
 });
@@ -26,14 +26,14 @@ $(".btn").click(function(){
 function nextLevel() {
     userClickedPattern = [];
 
-    var randomNumber = Math.floor(Math.random() * buttonColours.length);
+    var randomNumber = Math.floor(Math.random() * animals.length);
     
-    var randomChosenColour = buttonColours[randomNumber];
+    var randomChosenAnimal = animals[randomNumber];
    
-    $("#" + randomChosenColour).fadeOut(100).fadeIn(100);
-    playSound (randomChosenColour);
+    $("#" + randomChosenAnimal).fadeOut(100).fadeIn(100);
+    playSound (randomChosenAnimal);
 
-    gamePattern.push(randomChosenColour);
+    gamePattern.push(randomChosenAnimal);
 
     $("h1").text("level " + gamePattern.length);
 }
@@ -51,12 +51,12 @@ function checkAnswer (index){
 }
 
 function gameOver () {
-    playSound ("wrong");
-    $("h1").text("Game Over, Press Any Key to Restart");
+    playSound ("gameover");
+    $("h1").text("Let's Start Over, Press Any Key");
     $("body").addClass("game-over");
     setTimeout(function() {
         $("body").removeClass("game-over");
-    }, 200);
+    }, 700);
     gamePattern = [];
 }
 
@@ -64,9 +64,9 @@ function playSound (name) {
     new Audio (`sounds/${name}.mp3`).play();
 }
 
-function animatePress (currentColour) {
-    $(".btn." + currentColour).addClass("pressed");
+function animatePress (currentAnimal) {
+    $(".btn." + currentAnimal).addClass("pressed");
     setTimeout(function() {
-        $(".btn." + currentColour).removeClass("pressed");
+        $(".btn." + currentAnimal).removeClass("pressed");
     }, 100);
 }

@@ -1,20 +1,23 @@
 body {
   text-align: center;
-  background-color: #011F3F;
+  background-color: #6ad88b;
+}
+
+img {
+  width: 90%;
+  margin-top: 10px;
 }
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+  font-size: 2.5rem;
+  margin:  1%;
+  color: #18160c;
 }
 
 .container {
   display: block;
-  width: 50%;
   margin: auto;
-
 }
 
 .btn {
@@ -22,29 +25,29 @@ body {
   display: inline-block;
   height: 200px;
   width: 200px;
-  border: 10px solid black;
+  border: 5px solid black;
   border-radius: 20%;
 }
 
 .game-over {
-  background-color: red;
+  background-color: #965040;
   opacity: 0.8;
 }
 
-.red {
-  background-color: red;
+.pig {
+  background-color:#d8806c;
 }
 
-.green {
-  background-color: green;
+.cow {
+  background-color: #d8ac9c;
 }
 
-.blue {
-  background-color: blue;
+.sheep {
+  background-color: #c1a2aa;
 }
 
-.yellow {
-  background-color: yellow;
+.chicken {
+  background-color: #fad586;
 }
 
 .pressed {
